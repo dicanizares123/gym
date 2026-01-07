@@ -1,7 +1,7 @@
 package com.puce.gym.controller
 
-import com.puce.gym.models.Request.EnrollmentRequest
-import com.puce.gym.models.Response.EnrollmentResponse
+import com.puce.gym.models.request.EnrollmentRequest
+import com.puce.gym.models.response.EnrollmentResponse
 import com.puce.gym.service.EnrollmentService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

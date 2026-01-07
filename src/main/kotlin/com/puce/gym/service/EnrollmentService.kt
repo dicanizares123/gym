@@ -1,8 +1,8 @@
 package com.puce.gym.service
 
 import com.puce.gym.mappers.EnrollmentMapper
-import com.puce.gym.models.Request.EnrollmentRequest
-import com.puce.gym.models.Response.EnrollmentResponse
+import com.puce.gym.models.request.EnrollmentRequest
+import com.puce.gym.models.response.EnrollmentResponse
 import com.puce.gym.repositories.EnrollmentRepository
 import com.puce.gym.repositories.MemberRepository
 import com.puce.gym.repositories.MembershipRepository

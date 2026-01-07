@@ -1,61 +1,58 @@
 package com.puce.gym.service
-}
-    }
-        return memberMapper.toResponseList(members)
-        val members = memberRepository.findByActive(true)
-    fun getActiveMembers(): List<MemberResponse> {
-
-    }
-        memberRepository.save(inactiveMember)
-        val inactiveMember = member.copy(active = false)
-
-            .orElseThrow { RuntimeException("Member not found with id: $id") }
-        val member = memberRepository.findById(id)
-    fun deleteMember(id: Long) {
-
-    }
-        return memberMapper.toResponse(savedMember)
-        val savedMember = memberRepository.save(updatedMember)
-
-        )
-            dateOfBirth = request.dateOfBirth
-            phone = request.phone,
-            email = request.email,
-            lastName = request.lastName,
-            firstName = request.firstName,
-        val updatedMember = existingMember.copy(
-
-            .orElseThrow { RuntimeException("Member not found with id: $id") }
-        val existingMember = memberRepository.findById(id)
-    fun updateMember(id: Long, request: MemberRequest): MemberResponse {
-
-    }
-        return memberMapper.toResponse(member)
-            .orElseThrow { RuntimeException("Member not found with id: $id") }
-        val member = memberRepository.findById(id)
-    fun getMemberById(id: Long): MemberResponse {
-
-    }
-        return memberMapper.toResponseList(members)
-        val members = memberRepository.findAll()
-    fun getAllMembers(): List<MemberResponse> {
-
-    }
-        return memberMapper.toResponse(savedMember)
-        val savedMember = memberRepository.save(member)
-        val member = memberMapper.toEntity(request)
-    fun createMember(request: MemberRequest): MemberResponse {
-
-) {
-    private val memberMapper: MemberMapper
-    private val memberRepository: MemberRepository,
-class MemberService(
-@Service
 
 import org.springframework.stereotype.Service
 import com.puce.gym.repositories.MemberRepository
-import com.puce.gym.models.Response.MemberResponse
-import com.puce.gym.models.Request.MemberRequest
+import com.puce.gym.models.response.MemberResponse
+import com.puce.gym.models.request.MemberRequest
 import com.puce.gym.mappers.MemberMapper
+
+@Service
+class MemberService(
+    private val memberRepository: MemberRepository,
+    private val memberMapper: MemberMapper
+) {
+    fun createMember(request: MemberRequest): MemberResponse {
+        val member = memberMapper.toEntity(request)
+        val savedMember = memberRepository.save(member)
+        return memberMapper.toResponse(savedMember)
+    }
+
+    fun getAllMembers(): List<MemberResponse> {
+        val members = memberRepository.findAll()
+        return memberMapper.toResponseList(members)
+    }
+
+    fun getMemberById(id: Long): MemberResponse {
+        val member = memberRepository.findById(id)
+            .orElseThrow { RuntimeException("Member not found with id: $id") }
+        return memberMapper.toResponse(member)
+    }
+
+    fun updateMember(id: Long, request: MemberRequest): MemberResponse {
+        val existingMember = memberRepository.findById(id)
+            .orElseThrow { RuntimeException("Member not found with id: $id") }
+        val updatedMember = existingMember.copy(
+            firstName = request.firstName,
+            lastName = request.lastName,
+            email = request.email,
+            phone = request.phone,
+            dateOfBirth = request.dateOfBirth
+        )
+        val savedMember = memberRepository.save(updatedMember)
+        return memberMapper.toResponse(savedMember)
+    }
+
+    fun deleteMember(id: Long) {
+        val member = memberRepository.findById(id)
+            .orElseThrow { RuntimeException("Member not found with id: $id") }
+        val inactiveMember = member.copy(active = false)
+        memberRepository.save(inactiveMember)
+    }
+
+    fun getActiveMembers(): List<MemberResponse> {
+        val members = memberRepository.findByActive(true)
+        return memberMapper.toResponseList(members)
+    }
+}
 
 

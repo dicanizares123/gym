@@ -1,8 +1,8 @@
 package com.puce.gym.service
 
 import com.puce.gym.mappers.MembershipMapper
-import com.puce.gym.models.Request.MembershipRequest
-import com.puce.gym.models.Response.MembershipResponse
+import com.puce.gym.models.request.MembershipRequest
+import com.puce.gym.models.response.MembershipResponse
 import com.puce.gym.repositories.MembershipRepository
 import org.springframework.stereotype.Service
 

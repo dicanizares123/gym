@@ -1,55 +1,54 @@
 package com.puce.gym.controller
-}
-    }
-        return ResponseEntity.ok(members)
-        val members = memberService.getActiveMembers()
-    fun getActiveMembers(): ResponseEntity<List<MemberResponse>> {
-    @GetMapping("/active")
 
-    }
-        return ResponseEntity.noContent().build()
-        memberService.deleteMember(id)
-    fun deleteMember(@PathVariable id: Long): ResponseEntity<Void> {
-    @DeleteMapping("/{id}")
-
-    }
-        return ResponseEntity.ok(member)
-        val member = memberService.updateMember(id, request)
-    ): ResponseEntity<MemberResponse> {
-        @RequestBody request: MemberRequest
-        @PathVariable id: Long,
-    fun updateMember(
-    @PutMapping("/{id}")
-
-    }
-        return ResponseEntity.ok(member)
-        val member = memberService.getMemberById(id)
-    fun getMemberById(@PathVariable id: Long): ResponseEntity<MemberResponse> {
-    @GetMapping("/{id}")
-
-    }
-        return ResponseEntity.ok(members)
-        val members = memberService.getAllMembers()
-    fun getAllMembers(): ResponseEntity<List<MemberResponse>> {
-    @GetMapping
-
-    }
-        return ResponseEntity.status(HttpStatus.CREATED).body(member)
-        val member = memberService.createMember(request)
-    fun createMember(@RequestBody request: MemberRequest): ResponseEntity<MemberResponse> {
-    @PostMapping
-
-) {
-    private val memberService: MemberService
-class MemberController(
-@RequestMapping("/api/members")
-@RestController
-
-import org.springframework.web.bind.annotation.*
 import org.springframework.http.ResponseEntity
-import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.*
 import com.puce.gym.service.MemberService
-import com.puce.gym.models.Response.MemberResponse
-import com.puce.gym.models.Request.MemberRequest
+import com.puce.gym.models.request.MemberRequest
+import com.puce.gym.models.response.MemberResponse
 
+@RestController
+@RequestMapping("/api/members")
+class MemberController(
+    private val memberService: MemberService
+) {
+
+    @PostMapping
+    fun createMember(@RequestBody request: MemberRequest): ResponseEntity<MemberResponse> {
+        val member = memberService.createMember(request)
+        return ResponseEntity.ok(member)
+    }
+
+    @GetMapping
+    fun getAllMembers(): ResponseEntity<List<MemberResponse>> {
+        val members = memberService.getAllMembers()
+        return ResponseEntity.ok(members)
+    }
+
+    @GetMapping("/{id}")
+    fun getMemberById(@PathVariable id: Long): ResponseEntity<MemberResponse> {
+        val member = memberService.getMemberById(id)
+        return ResponseEntity.ok(member)
+    }
+
+    @PutMapping("/{id}")
+    fun updateMember(
+        @PathVariable id: Long,
+        @RequestBody request: MemberRequest
+    ): ResponseEntity<MemberResponse> {
+        val member = memberService.updateMember(id, request)
+        return ResponseEntity.ok(member)
+    }
+
+    @DeleteMapping("/{id}")
+    fun deleteMember(@PathVariable id: Long): ResponseEntity<Void> {
+        memberService.deleteMember(id)
+        return ResponseEntity.noContent().build()
+    }
+
+    @GetMapping("/active/list")
+    fun getActiveMembers(): ResponseEntity<List<MemberResponse>> {
+        val members = memberService.getActiveMembers()
+        return ResponseEntity.ok(members)
+    }
+}
 

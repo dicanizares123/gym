@@ -1,6 +1,6 @@
 package com.puce.gym.repositories
 
-import com.puce.gym.models.Entities.Membership
+import com.puce.gym.models.entities.Membership
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 

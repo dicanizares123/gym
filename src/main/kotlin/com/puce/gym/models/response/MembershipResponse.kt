@@ -1,4 +1,4 @@
-package com.puce.gym.models.Response
+package com.puce.gym.models.response
 
 import java.math.BigDecimal
 

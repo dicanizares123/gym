@@ -1,8 +1,8 @@
 package com.puce.gym.mappers
 
-import com.puce.gym.models.Entities.Membership
-import com.puce.gym.models.Request.MembershipRequest
-import com.puce.gym.models.Response.MembershipResponse
+import com.puce.gym.models.entities.Membership
+import com.puce.gym.models.request.MembershipRequest
+import com.puce.gym.models.response.MembershipResponse
 import org.springframework.stereotype.Component
 
 @Component

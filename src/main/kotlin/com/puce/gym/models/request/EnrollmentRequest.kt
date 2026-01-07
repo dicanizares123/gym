@@ -1,4 +1,4 @@
-package com.puce.gym.models.Request
+package com.puce.gym.models.request
 
 import java.time.LocalDate
 

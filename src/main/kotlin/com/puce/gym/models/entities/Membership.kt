@@ -1,4 +1,4 @@
-package com.puce.gym.models.Entities
+package com.puce.gym.models.entities
 
 import jakarta.persistence.*
 import java.math.BigDecimal

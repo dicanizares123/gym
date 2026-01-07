@@ -1,10 +1,10 @@
 package com.puce.gym.mappers
 
-import com.puce.gym.models.Entities.Enrollment
-import com.puce.gym.models.Entities.Member
-import com.puce.gym.models.Entities.Membership
-import com.puce.gym.models.Request.EnrollmentRequest
-import com.puce.gym.models.Response.EnrollmentResponse
+import com.puce.gym.models.entities.Enrollment
+import com.puce.gym.models.entities.Member
+import com.puce.gym.models.entities.Membership
+import com.puce.gym.models.request.EnrollmentRequest
+import com.puce.gym.models.response.EnrollmentResponse
 import org.springframework.stereotype.Component
 
 @Component
